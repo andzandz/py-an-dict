@@ -1,11 +1,14 @@
 class AnDict:
-    items = []
-
     def __init__(self):
-        pass
+        self.items = []
 
     def put(self, key, value):
-        self.items.append([key,value])
+        self.items.append([key, value])
 
-    def get(self, key):
-        return self.items[0][1]
+    def get(self, needle):
+        for item in self.items:
+            if item[0] == needle:
+                return item[1]
+
+    def size(self):
+        return len(self.items)
