@@ -3,32 +3,39 @@ from AnDict import AnDict
 
 
 class AnDictTest(unittest.TestCase):
+    def setUp(self):
+        self.ad = AnDict.AnDict()
+
     def testSingleEntry(self):
-        ad = AnDict.AnDict()
-        ad.put('a', 1)
-        self.assertEqual(1, ad.get('a'))
+        self.ad.put('a', 1)
+        self.assertEqual(1, self.ad.get('a'))
 
     def testTwoEntries(self):
-        ad = AnDict.AnDict()
-        ad.put('a', 1)
-        ad.put('b', 2)
-        self.assertEqual(1, ad.get('a'))
-        self.assertEqual(2, ad.get('b'))
+        self.ad.put('a', 1)
+        self.ad.put('b', 2)
+        self.assertEqual(1, self.ad.get('a'))
+        self.assertEqual(2, self.ad.get('b'))
 
     def testSize(self):
-        ad = AnDict.AnDict()
-        self.assertEqual(0, ad.size())
-        ad.put('a', 1)
-        self.assertEqual(1, ad.size())
-        ad.put('b', 2)
-        self.assertEqual(2, ad.size())
+        self.assertEqual(0, self.ad.size())
+        self.ad.put('a', 1)
+        self.assertEqual(1, self.ad.size())
+        self.ad.put('b', 2)
+        self.assertEqual(2, self.ad.size())
 
     def testOverwriteKey(self):
-        ad = AnDict.AnDict()
-        ad.put('a', 1)
-        ad.put('a', 2)
-        self.assertEqual(2, ad.get('a'))
-        self.assertEqual(1, ad.size())
+        self.ad.put('a', 1)
+        self.ad.put('a', 2)
+        self.assertEqual(2, self.ad.get('a'))
+        self.assertEqual(1, self.ad.size())
+
+    def testNonexistentItem(self):
+        with self.assertRaises(AnDict.NonexistentKeyError):
+            self.ad.get('foo')
+
+        self.ad.put('foo', 'bar')
+        self.ad.get('foo')
+
 
 if __name__ == '__main__':
     unittest.main()

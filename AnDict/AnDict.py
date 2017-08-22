@@ -12,13 +12,14 @@ class AnDict:
 
     def get(self, needle):
         item = self._find_item(needle)
-        if item:
-            return item[1]
+        if not item:
+            raise NonexistentKeyError()
+        return item[1]
 
     def size(self):
         return len(self.items)
 
-    ## Internal methods ##
+    # # # Internal methods # # #
 
     def _find_item(self, needle):
         for item in self.items:
@@ -26,3 +27,7 @@ class AnDict:
                 return item
 
         return None
+
+
+class NonexistentKeyError(Exception):
+    pass
