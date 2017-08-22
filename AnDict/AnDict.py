@@ -10,6 +10,11 @@ class AnDict:
 
         self.items.append([key, value])
 
+    # UNTESTED
+    def putUnsafe(self, key, value):
+        self.items.append([key, value])
+
+
     def get(self, needle):
         item = self._find_item(needle)
         if not item:
