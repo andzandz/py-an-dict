@@ -23,5 +23,12 @@ class AnDictTest(unittest.TestCase):
         ad.put('b', 2)
         self.assertEqual(2, ad.size())
 
+    def testOverwriteKey(self):
+        ad = AnDict.AnDict()
+        ad.put('a', 1)
+        ad.put('a', 2)
+        self.assertEqual(2, ad.get('a'))
+        self.assertEqual(1, ad.size())
+
 if __name__ == '__main__':
     unittest.main()
