@@ -1,12 +1,12 @@
-from AnDict import AnDict
+from ADict import ADict
 import time
 
 file = open('fixture.csv', 'r')
 
-ad = AnDict.AnDict()
+ad = ADict.ADict()
 
 start_time = time.time()
-print("creating AnDict from file...")
+print("creating ADict from file...")
 for line in file.read().splitlines():
     split = line.split(',')
     #ad.put(split[0], split[1])

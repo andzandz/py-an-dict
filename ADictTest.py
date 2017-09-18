@@ -1,10 +1,9 @@
 import unittest
-from AnDict import AnDict
+from ADict import ADict
 
-
-class AnDictTest(unittest.TestCase):
+class ADictTest(unittest.TestCase):
     def setUp(self):
-        self.ad = AnDict.AnDict()
+        self.ad = ADict.ADict()
 
     def testSingleEntry(self):
         self.ad.put('a', 1)
@@ -30,7 +29,7 @@ class AnDictTest(unittest.TestCase):
         self.assertEqual(1, self.ad.size())
 
     def testNonexistentItem(self):
-        with self.assertRaises(AnDict.NonexistentKeyError):
+        with self.assertRaises(ADict.NonexistentKeyError):
             self.ad.get('foo')
 
         self.ad.put('foo', 'bar')

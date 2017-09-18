@@ -1,1 +1,1 @@
-python AnDictTest.py
+python ADictTest.py

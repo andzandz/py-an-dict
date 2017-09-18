@@ -1,4 +1,4 @@
-class AnDict:
+class ADict:
     def __init__(self):
         self.items = []
 
@@ -9,11 +9,6 @@ class AnDict:
             return
 
         self.items.append([key, value])
-
-    # UNTESTED
-    def putUnsafe(self, key, value):
-        self.items.append([key, value])
-
 
     def get(self, needle):
         item = self._find_item(needle)
@@ -32,6 +27,11 @@ class AnDict:
                 return item
 
         return None
+
+
+    # UNTESTED
+    def putUnsafe(self, key, value):
+        self.items.append([key, value])
 
 
 class NonexistentKeyError(Exception):
